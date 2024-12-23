@@ -132,7 +132,7 @@ export function SendTransactionForm() {
             />
           </div>
 
-          <Alert variant="info" className="bg-blue-500/10 text-blue-500 border-blue-500/20">
+          <Alert variant="default" className="bg-blue-500/10 text-blue-500 border-blue-500/20">
             <AlertCircle className="h-4 w-4" />
             <AlertDescription>
               Recipient will need to confirm the transaction

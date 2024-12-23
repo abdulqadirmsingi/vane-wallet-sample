@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { useAccount, useConnect, useDisconnect } from "wagmi";
+import { useAccount, useConnect, useDisconnect, Connector } from "wagmi";
 import { useWallet } from "@solana/wallet-adapter-react";
 import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 import { Badge } from "@/components/ui/badge";
@@ -9,7 +9,7 @@ import { Wallet2 } from "lucide-react";
 
 export function WalletConnect() {
   const { address, isConnected } = useAccount();
-  const { connect } = useConnect();
+  const { connect, connectors } = useConnect();
   const { disconnect } = useDisconnect();
   const { publicKey: solanaPublicKey } = useWallet();
 
@@ -35,7 +35,7 @@ export function WalletConnect() {
               </Button>
             </div>
           ) : (
-            <Button onClick={() => connect()}>Connect Ethereum Wallet</Button>
+            <Button onClick={() => connect({ connector: connectors[0] })}>Connect Ethereum Wallet</Button>
           )}
         </div>
 
